@@ -1,56 +1,117 @@
 # Dom-manipulation
+
 ### How can you use JavaScript to create an HTML element and then add it to your webpage? How would you replace an existing element with it?
-  *** 1. How can you use JavaScript to create an HTML element and then add it to your webpage?***
-* first : creates a new element (e.g ```<h1>```).
-* ```var newElement = document.createElement("h1");```
+
+**_ 1. How can you use JavaScript to create an HTML element and then add it to your webpage?_**
+
+* first : creates a new element (e.g `<h1>`).
+* `var newElement = document.createElement("h1");`
 
 * add text
-*  ```var text = document.createTextNode("This Is New");```
+* `var text = document.createTextNode("This Is New");`
 
-*  append the text node to the ```<h1>``` element:
-* ``` newElement.appendChild(text);```
+* append the text node to the `<h1>` element:
+* `newElement.appendChild(text);`
 
 * select the place where the element should be added before:
 
-* ```  var place = document.getElementById("p1");```
-*  appends the new element to the existing element
-* ``` place.insertBefore(newElement,place);```
+* `var place = document.getElementById("p1");`
+* appends the new element to the existing element
+* `place.insertBefore(newElement,place);`
 
-*** 2. How would you replace an existing element with it?***
+**_ 2. How would you replace an existing element with it?_**
 
-first : creates a new element (e.g ```<p>```).
-* ```var newElement = document.createElement("p");```
+first : creates a new element (e.g `<p>`).
+
+* `var newElement = document.createElement("p");`
 
 * add text
-*  ```var text = document.createTextNode("This is a new paragraph");```
+* `var text = document.createTextNode("This is a new paragraph");`
 
-*  append the text node to the ```<p>``` element:
-* ``` newElement.appendChild(text);```
+* append the text node to the `<p>` element:
+* `newElement.appendChild(text);`
 
 select the place where the element should be replaced:
 
-* ```  var replaced = document.getElementById("replacedID");```
+* `var replaced = document.getElementById("replacedID");`
 
 * replace it with new Element :
 
-* ```replaced.replaceWith(newElement);```
+* `replaced.replaceWith(newElement);`
 
-## How would you add a ```<li>``` element to the start of a ```<ul>```?
-first : creates a new element (```<li>```).
-* ```var newli = document.createElement("li");```
+## How would you add a `<li>` element to the start of a `<ul>`?
+
+first : creates a new element (`<li>`).
+
+* `var newli = document.createElement("li");`
 
 * add text
-*  ```var text = document.createTextNode("Your text Here...");```
+* `var text = document.createTextNode("Your text Here...");`
 
-*  append the text node to the ```<li>``` element:
-* ``` newli.appendChild(text);```
+* append the text node to the `<li>` element:
+* `newli.appendChild(text);`
 
 select the **ul** where the **li** should be added:
 
-* ```  var ulElement = document.getElementById("ulID");```
+* `var ulElement = document.getElementById("ulID");`
 
-*  appends the new **li** to the  **ul**
-* ``` ulElement.appendChild(newli);```
+* appends the new **li** to the **ul**
+* `ulElement.appendChild(newli);`
+
+## JAVASCRIPT EVENTS:
+
+**An JAVASCRIPT event can be something the browser does, or something a user does.**
+
+## Here are some examples of HTML events:
+
+* An HTML web page has finished loading
+
+* An HTML input field was changed
+* An HTML button was clicked
+  Often, when events happen, you may want to do something.
+
+**JavaScript lets you execute code when events are detected.**
+
+**HTML allows event to handler attributes, with JavaScript code, like add new text or replace text ... etc.**
+
+## Can take this format:
+
+```
+<element event='some JavaScript'>
+```
+
+event like onClick, hover, right click, ... etc.
+**Example:**
+
+```
+<button onclick="document.getElementById('demo').textContent = Date()">The time is?</button>
+```
+
+## event.preventDefault():
+
+As it's name, it's prevent the default action of the event to be excute.
+
+**For examples:**
+
+* click on anchors will not take the browser to a new URL.
+* Clicking on a "Submit" button, prevent it from submitting a form.
+
+**Code example:**
+
+```
+<body>
+<a href="http://jquery.com">default click action is prevented</a>
+<div id="log"></div>
+<script>
+$( "a" ).click(function( event ) {
+  event.preventDefault();
+  document.getElementById("log").innerHTML = "New Paragraph";
+});
+</script>
+
+</body>
+```
+
 ## What is nodeList ?
 
 **this expression is old
@@ -109,60 +170,6 @@ _The differences between NodeList and array_
 * The element in Array is arr[i] ,
   in NodeList is NodeList.item(i);
 * [To more differences](https://toddmotto.com/a-comprehensive-dive-into-nodelists-arrays-converting-nodelists-and-understanding-the-dom/#browser-support)
-
-## JAVASCRIPT EVENTS:
-
-**An JAVASCRIPT event can be something the browser does, or something a user does.**
-
-## Here are some examples of HTML events:
-
-* An HTML web page has finished loading
-
-* An HTML input field was changed
-* An HTML button was clicked
-  Often, when events happen, you may want to do something.
-
-**JavaScript lets you execute code when events are detected.**
-
-**HTML allows event to handler attributes, with JavaScript code, like add new text or replace text ... etc.**
-
-## Can take this format:
-
-```
-<element event='some JavaScript'>
-```
-
-event like onClick, hover, right click, ... etc.
-**Example:**
-
-```
-<button onclick="document.getElementById('demo').textContent = Date()">The time is?</button>
-```
-
-## event.preventDefault():
-
-As it's name, it's prevent the default action of the event to be excute.
-
-**For examples:**
-
-* click on anchors will not take the browser to a new URL.
-* Clicking on a "Submit" button, prevent it from submitting a form.
-
-**Code example:**
-
-```
-<body>
-<a href="http://jquery.com">default click action is prevented</a>
-<div id="log"></div>
-<script>
-$( "a" ).click(function( event ) {
-  event.preventDefault();
-  document.getElementById("log").innerHTML = "New Paragraph";
-});
-</script>
-
-</body>
-```
 
 ## InnerHTML:
 
