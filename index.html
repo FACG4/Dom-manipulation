@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Creat New Element</h1>
+<div id="parentID">
+<p id="p1">This is a paragraph.</p>
+<button type="button" onclick="addelement()">TEST</button>
+
+
+
+</div>
+<hr>
+<h1>Replace </h1>
+<p id="replacedID">This is an old paragraph ,Shoul be replaced</p>
+<button type="button" onclick="replace()">TEST</button>
+<hr>
+
+<ul id="ulID">
+  <li>FIRST LI</li>
+  <li>SECOND LI</li>
+  <li>THIRD LI</li>
+
+</ul>
+<button type="button" onclick="addli()">TEST</button>
+
+<script>
+var num0=0;
+function addelement() {
+  num0+=1;
+  var  newElement= document.createElement("h1");
+  var text = document.createTextNode("This is new. "+num0+"  H1");
+  newElement.appendChild(text);
+
+  var parent = document.getElementById("parentID");
+  var place = document.getElementById("p1");
+  parent.insertBefore(newElement,place);
+}
+function replace() {
+  var newElement = document.createElement("p");
+var text = document.createTextNode("This is a new paragraph ");
+newElement.appendChild(text);
+var replaced = document.getElementById("replacedID");
+replaced.replaceWith(newElement);
+
+}
+var num=0;
+function addli() {
+
+  num+=1;
+  var newli = document.createElement("li");
+var text = document.createTextNode("This is "+num+" li element");
+newli.appendChild(text);
+var ulElement = document.getElementById("ulID");
+ulElement.prepend(newli);
+}
+
+</script>
+
+</body>
+</html>
